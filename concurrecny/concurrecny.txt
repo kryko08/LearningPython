@@ -1,0 +1,22 @@
+Introduction
+-concurrent programming 
+-asynchornous tasks run in single procces
+-does not build on Threading or Multiprocessing
+
+AsyncIO is based on cooperative multitasking 
+tasks
+-are able to operate separately from other tasks
+-are able to wait for another task to return a result when required
+-and are thus able to allow other tasks to run while they are waiting
+
+The IO aspect
+-suited to input outout tasks
+-spends most of the time sending data to or reading data from some sort of external device
+-program spends most of its time waiting for response from a external device
+-asyncio allows to one task to wait for a response from the external device, meanwhile other tasks can be running 
+
+Async event loop
+-this loops controls how and when each task is run
+-knows about each task and its state
+-gives control to the task that is ready to run 
+-tasks give up the processor when they decide to, they never get interrupted 

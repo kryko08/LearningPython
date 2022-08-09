@@ -35,7 +35,7 @@ async def task_function():
     task2 = asyncio.create_task(some_other_function(0.5))
 
     await task1
-    # await task2
+    await task2
 
 
 async def run_concurrently():
