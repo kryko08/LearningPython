@@ -2,6 +2,7 @@ import asyncio
 import time
 
 
+    
 async def some_function(sleep_time):
     # This function represents fetching from database
     print(f"{some_function.__name__} started running at {time.strftime('%X')}")
@@ -20,15 +21,15 @@ async def some_other_function(sleep_time):
     print(f"{some_other_function.__name__} finished running at {time.strftime('%X')}")
 
 
-async def main():
-    # This is the main function, functions are called after each other
+async def after_each_other():
+    # Functions are called after each other
     await some_function(2)
     await some_other_function(0.5)
 
-    print(f"{main.__name__} finished running at {time.strftime('%X')}")
+    print(f"{after_each_other.__name__} finished running at {time.strftime('%X')}")
 
 
-async def other_main():
+async def task_function():
     # Create tasks
     task1 = asyncio.create_task(some_function(4))
     task2 = asyncio.create_task(some_other_function(0.5))
@@ -37,13 +38,12 @@ async def other_main():
     # await task2
 
 
-async def another_main():
+async def run_concurrently():
     # Run tasks concurrently with "gather()"
     L = await asyncio.gather(some_function(2),
                              some_other_function(0.3)
                              )
 
 
-if __name__ == "__main__":
-    # Run async function
-    asyncio.run(another_main())
+asyncio.run(run_concurrently())
+
